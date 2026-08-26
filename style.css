@@ -1,4 +1,16 @@
-* {
+/* =========================================================
+   NOMADCOACH
+   Main stylesheet
+========================================================= */
+
+
+/* =========================================================
+   RESET + GLOBAL VARIABLES
+========================================================= */
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -9,10 +21,19 @@ html {
 :root {
   --background: #f4f1ec;
   --surface: #ffffff;
+
   --text: #131313;
   --muted: #67645f;
-  --accent: #b59a56;
+
   --dark: #141414;
+  --dark-soft: #222222;
+
+  --accent: #b59a56;
+
+  --line: #d4d0ca;
+  --line-dark: #383838;
+
+  --page-width: 1240px;
 }
 
 body {
@@ -28,13 +49,28 @@ body {
 
   background: var(--background);
   color: var(--text);
+
+  line-height: 1.5;
+
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
 }
 
 
-/* HEADER */
+/* =========================================================
+   HEADER
+========================================================= */
 
 .site-header {
-  width: min(1240px, calc(100% - 48px));
+  width: min(var(--page-width), calc(100% - 48px));
   min-height: 88px;
 
   margin: 0 auto;
@@ -47,6 +83,8 @@ body {
 }
 
 .logo {
+  flex-shrink: 0;
+
   color: var(--text);
 
   text-decoration: none;
@@ -71,12 +109,16 @@ body {
 }
 
 .desktop-nav a {
+  position: relative;
+
   color: var(--text);
 
   text-decoration: none;
 
   font-size: 0.92rem;
   font-weight: 500;
+
+  transition: opacity 0.2s ease;
 }
 
 .desktop-nav a:hover {
@@ -84,22 +126,40 @@ body {
 }
 
 .header-cta {
-  color: white;
+  flex-shrink: 0;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 42px;
+
+  padding: 0 18px;
+
   background: var(--dark);
+  color: #ffffff;
 
   text-decoration: none;
 
-  padding: 12px 18px;
-
   font-size: 0.88rem;
   font-weight: 650;
+
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.header-cta:hover {
+  transform: translateY(-1px);
 }
 
 
-/* HERO */
+/* =========================================================
+   HERO
+========================================================= */
 
 .hero {
-  width: min(1240px, calc(100% - 48px));
+  width: min(var(--page-width), calc(100% - 48px));
 
   min-height: calc(100vh - 88px);
 
@@ -108,9 +168,12 @@ body {
   padding: 70px 0 90px;
 
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(360px, 0.8fr);
 
-  gap: 80px;
+  grid-template-columns:
+    minmax(0, 1.15fr)
+    minmax(400px, 0.85fr);
+
+  gap: 72px;
 
   align-items: center;
 }
@@ -119,7 +182,9 @@ body {
 /* HERO COPY */
 
 .hero-copy {
-  max-width: 760px;
+  min-width: 0;
+
+  max-width: 720px;
 }
 
 .eyebrow {
@@ -130,50 +195,57 @@ body {
   font-size: 0.75rem;
   font-weight: 800;
 
+  line-height: 1.4;
+
   letter-spacing: 0.16em;
 }
 
-h1 {
-  margin: 0;
-
+.hero h1 {
   max-width: 800px;
 
-  font-size: clamp(3.6rem, 7vw, 7.3rem);
+  margin: 0;
 
-  line-height: 0.89;
+  font-size: clamp(3.8rem, 6.7vw, 7rem);
+
+  line-height: 0.9;
 
   letter-spacing: -0.065em;
 
-  font-weight: 750;
+  font-weight: 760;
 }
 
-h1 span {
+.hero h1 span {
   display: block;
+
+  margin-top: 8px;
 
   color: var(--muted);
 
-  font-weight: 450;
+  font-weight: 430;
 }
 
 .hero-text {
-  max-width: 620px;
+  max-width: 650px;
 
   margin: 34px 0 0;
 
-  font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+  color: #3f3d39;
+
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
 
   line-height: 1.65;
-
-  color: #3f3d39;
 }
 
-.hero-buttons {
-  margin-top: 38px;
 
+/* HERO BUTTONS */
+
+.hero-buttons {
   display: flex;
   flex-wrap: wrap;
 
   gap: 14px;
+
+  margin-top: 38px;
 }
 
 .button {
@@ -193,37 +265,41 @@ h1 span {
 
   transition:
     transform 0.2s ease,
-    opacity 0.2s ease;
+    opacity 0.2s ease,
+    background 0.2s ease;
 }
 
 .button:hover {
   transform: translateY(-2px);
 }
 
-.primary {
+.button.primary {
   background: var(--dark);
-  color: white;
+  color: #ffffff;
 }
 
-.secondary {
+.button.secondary {
+  border: 1px solid #aaa59d;
+
   color: var(--text);
 
-  border: 1px solid #aaa59d;
+  background: transparent;
 }
 
 
-/* PROOF */
+/* HERO PROOF POINTS */
 
 .hero-proof {
-  margin-top: 60px;
+  width: 100%;
 
-  padding-top: 26px;
+  margin-top: 52px;
+  padding-top: 24px;
 
-  border-top: 1px solid #d4d0ca;
+  border-top: 1px solid var(--line);
 
   display: grid;
 
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 
   gap: 22px;
 }
@@ -244,23 +320,29 @@ h1 span {
 
   font-size: 0.77rem;
 
-  line-height: 1.4;
+  line-height: 1.45;
 }
 
 
-/* PERFORMANCE PANEL */
+/* =========================================================
+   HERO BLACK PANEL
+========================================================= */
 
 .hero-panel {
-  background: var(--dark);
-  color: white;
+  width: 100%;
+  max-width: 500px;
 
   min-height: 580px;
 
+  justify-self: end;
+
   padding: 46px;
+
+  background: var(--dark);
+  color: #ffffff;
 
   display: flex;
   flex-direction: column;
-
   justify-content: center;
 }
 
@@ -272,25 +354,27 @@ h1 span {
   font-size: 0.7rem;
   font-weight: 800;
 
+  line-height: 1.4;
+
   letter-spacing: 0.15em;
 }
 
 .hero-panel h2 {
+  max-width: 400px;
+
   margin: 0 0 42px;
 
-  max-width: 390px;
-
-  font-size: clamp(2rem, 3vw, 3.4rem);
+  font-size: clamp(2rem, 3vw, 3.2rem);
 
   line-height: 1;
 
-  letter-spacing: -0.04em;
+  letter-spacing: -0.045em;
 }
 
 .system-item {
   padding: 21px 0;
 
-  border-top: 1px solid #383838;
+  border-top: 1px solid var(--line-dark);
 
   display: grid;
 
@@ -317,151 +401,44 @@ h1 span {
 .system-item p {
   margin: 0;
 
-  color: #aaa;
+  color: #aaaaaa;
 
   font-size: 0.84rem;
 
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
 .panel-footer {
   margin-top: 30px;
-
   padding-top: 22px;
 
-  border-top: 1px solid #383838;
+  border-top: 1px solid var(--line-dark);
 
-  color: #888;
+  color: #888888;
 
   font-size: 0.75rem;
+
+  line-height: 1.5;
 
   letter-spacing: 0.04em;
 }
 
 
-/* TABLET */
-
-@media (max-width: 1000px) {
-
-  .hero {
-    grid-template-columns: 1fr;
-
-    gap: 60px;
-
-    padding-top: 60px;
-  }
-
-  .hero-copy {
-    max-width: 850px;
-  }
-
-  .hero-panel {
-    min-height: auto;
-  }
-
-}
-
-
-/* MOBILE */
-
-@media (max-width: 720px) {
-
-  .site-header {
-    width: calc(100% - 36px);
-
-    min-height: 72px;
-
-    gap: 15px;
-  }
-
-  .desktop-nav {
-    display: none;
-  }
-
-  .header-cta {
-    padding: 10px 14px;
-
-    font-size: 0.78rem;
-  }
-
-  .hero {
-    width: calc(100% - 36px);
-
-    min-height: auto;
-
-    padding: 55px 0 70px;
-
-    grid-template-columns: 1fr;
-
-    gap: 48px;
-  }
-
-  .eyebrow {
-    margin-bottom: 20px;
-
-    font-size: 0.67rem;
-
-    line-height: 1.5;
-  }
-
-  h1 {
-    font-size: clamp(3.15rem, 16vw, 5rem);
-
-    line-height: 0.92;
-
-    letter-spacing: -0.055em;
-  }
-
-  .hero-text {
-    margin-top: 27px;
-
-    font-size: 1.05rem;
-  }
-
-  .hero-buttons {
-    margin-top: 30px;
-
-    flex-direction: column;
-  }
-
-  .button {
-    width: 100%;
-  }
-
-  .hero-proof {
-    margin-top: 45px;
-
-    grid-template-columns: 1fr;
-
-    gap: 18px;
-  }
-
-  .hero-proof div {
-    padding-bottom: 16px;
-
-    border-bottom: 1px solid #ddd8d0;
-  }
-
-  .hero-panel {
-    padding: 34px 26px;
-
-    min-height: 0;
-  }
-
-  .hero-panel h2 {
-    margin-bottom: 30px;
-  }
-
-}
-/* COACHING SECTION */
+/* =========================================================
+   COACHING SECTION
+========================================================= */
 
 .coaching-section {
-  padding: 120px max(24px, calc((100% - 1240px) / 2));
-  background: #ffffff;
+  padding:
+    120px
+    max(24px, calc((100% - var(--page-width)) / 2));
+
+  background: var(--surface);
 }
 
 .section-intro {
   max-width: 820px;
+
   margin-bottom: 70px;
 }
 
@@ -473,6 +450,8 @@ h1 span {
   font-size: 0.72rem;
   font-weight: 800;
 
+  line-height: 1.4;
+
   letter-spacing: 0.16em;
 }
 
@@ -480,6 +459,7 @@ h1 span {
   margin: 0 0 30px;
 
   font-size: clamp(2.8rem, 5vw, 5rem);
+
   line-height: 0.98;
 
   letter-spacing: -0.05em;
@@ -487,8 +467,10 @@ h1 span {
 
 .section-intro h2 span {
   display: block;
+
   color: var(--muted);
-  font-weight: 450;
+
+  font-weight: 430;
 }
 
 .section-intro > p:not(.section-label) {
@@ -499,21 +481,25 @@ h1 span {
   color: #4e4b46;
 
   font-size: 1.08rem;
+
   line-height: 1.7;
 }
 
 
-/* COACHING PATHS */
+/* =========================================================
+   COACHING CARDS
+========================================================= */
 
 .coaching-paths {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 
   gap: 24px;
 }
 
 .coaching-card {
-  min-height: 560px;
+  min-height: 570px;
 
   padding: 46px;
 
@@ -529,7 +515,7 @@ h1 span {
 }
 
 .card-number {
-  margin: 0 0 60px;
+  margin: 0 0 58px;
 
   color: var(--accent);
 
@@ -543,6 +529,7 @@ h1 span {
   font-size: clamp(2rem, 3vw, 3.2rem);
 
   line-height: 1;
+
   letter-spacing: -0.04em;
 }
 
@@ -554,6 +541,7 @@ h1 span {
   color: var(--muted);
 
   font-size: 1rem;
+
   line-height: 1.6;
 }
 
@@ -574,6 +562,8 @@ h1 span {
   border-top: 1px solid #d5d0c8;
 
   font-size: 0.92rem;
+
+  line-height: 1.45;
 }
 
 .coaching-card-dark li {
@@ -582,22 +572,314 @@ h1 span {
 
 .card-note {
   margin: auto 0 0;
+
   padding-top: 35px;
 
   color: var(--muted);
 
   font-size: 0.85rem;
+
   line-height: 1.6;
 }
 
 .coaching-card-dark .card-note {
-  color: #8f8f8f;
+  color: #929292;
 }
 
 
-/* COACHING MOBILE */
+/* =========================================================
+   ABOUT
+========================================================= */
 
-@media (max-width: 800px) {
+.about-section {
+  padding:
+    120px
+    max(24px, calc((100% - var(--page-width)) / 2));
+
+  background: var(--background);
+}
+
+.about-heading {
+  max-width: 900px;
+
+  margin-bottom: 70px;
+}
+
+.about-heading h2 {
+  margin: 0;
+
+  font-size: clamp(3rem, 5.5vw, 5.8rem);
+
+  line-height: 0.95;
+
+  letter-spacing: -0.055em;
+}
+
+.about-heading h2 span {
+  display: block;
+
+  color: var(--muted);
+
+  font-weight: 430;
+}
+
+.about-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(360px, 0.8fr);
+
+  gap: 90px;
+
+  align-items: start;
+}
+
+
+/* ABOUT STORY */
+
+.about-story {
+  max-width: 690px;
+}
+
+.about-story p {
+  margin: 0 0 22px;
+
+  color: #4b4945;
+
+  font-size: 1.02rem;
+
+  line-height: 1.75;
+}
+
+.about-story .about-lead {
+  color: var(--text);
+
+  font-size: clamp(1.3rem, 2vw, 1.65rem);
+
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   CREDENTIALS
+========================================================= */
+
+.credibility {
+  border-top: 1px solid #ccc7bf;
+}
+
+.credential {
+  padding: 26px 0;
+
+  border-bottom: 1px solid #ccc7bf;
+
+  display: grid;
+
+  grid-template-columns: 40px 1fr;
+
+  gap: 18px;
+}
+
+.credential > span {
+  color: var(--accent);
+
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.credential strong {
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-size: 1rem;
+}
+
+.credential p {
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: 0.88rem;
+
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .hero {
+    min-height: auto;
+
+    grid-template-columns: 1fr;
+
+    gap: 48px;
+
+    padding-top: 60px;
+  }
+
+  .hero-copy {
+    max-width: 820px;
+  }
+
+  .hero-panel {
+    max-width: none;
+
+    min-height: auto;
+
+    justify-self: stretch;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+
+    gap: 55px;
+  }
+
+  .credibility {
+    max-width: 720px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 720px) {
+
+  /* HEADER */
+
+  .site-header {
+    width: calc(100% - 36px);
+
+    min-height: 72px;
+
+    gap: 12px;
+  }
+
+  .logo {
+    font-size: 0.95rem;
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .header-cta {
+    min-height: 38px;
+
+    padding: 0 14px;
+
+    font-size: 0.78rem;
+  }
+
+
+  /* HERO */
+
+  .hero {
+    width: calc(100% - 36px);
+
+    min-height: auto;
+
+    padding: 50px 0 70px;
+
+    grid-template-columns: 1fr;
+
+    gap: 42px;
+  }
+
+  .eyebrow {
+    margin-bottom: 20px;
+
+    font-size: 0.67rem;
+
+    line-height: 1.5;
+  }
+
+  .hero h1 {
+    font-size: clamp(3rem, 15vw, 4.8rem);
+
+    line-height: 0.92;
+
+    letter-spacing: -0.055em;
+  }
+
+  .hero h1 span {
+    margin-top: 6px;
+  }
+
+  .hero-text {
+    margin-top: 27px;
+
+    font-size: 1rem;
+
+    line-height: 1.65;
+  }
+
+  .hero-buttons {
+    margin-top: 30px;
+
+    flex-direction: column;
+  }
+
+  .hero-buttons .button {
+    width: 100%;
+  }
+
+  .hero-proof {
+    margin-top: 42px;
+
+    padding-top: 0;
+
+    grid-template-columns: 1fr;
+
+    gap: 0;
+  }
+
+  .hero-proof div {
+    padding: 16px 0;
+
+    border-bottom: 1px solid var(--line);
+  }
+
+
+  /* HERO PANEL */
+
+  .hero-panel {
+    min-height: auto;
+
+    padding: 34px 26px;
+  }
+
+  .hero-panel h2 {
+    margin-bottom: 30px;
+
+    font-size: 2.3rem;
+  }
+
+  .system-item {
+    grid-template-columns: 34px 1fr;
+  }
+
+
+  /* COACHING */
 
   .coaching-section {
     padding: 80px 18px;
@@ -607,13 +889,22 @@ h1 span {
     margin-bottom: 45px;
   }
 
+  .section-intro h2 {
+    font-size: clamp(2.7rem, 12vw, 4rem);
+  }
+
+  .section-intro > p:not(.section-label) {
+    font-size: 1rem;
+  }
+
   .coaching-paths {
     grid-template-columns: 1fr;
   }
 
   .coaching-card {
     min-height: auto;
-    padding: 32px 26px;
+
+    padding: 34px 26px;
   }
 
   .card-number {
@@ -624,41 +915,54 @@ h1 span {
     margin-top: 35px;
   }
 
+
+  /* ABOUT */
+
+  .about-section {
+    padding: 80px 18px;
+  }
+
+  .about-heading {
+    margin-bottom: 45px;
+  }
+
+  .about-heading h2 {
+    font-size: clamp(2.8rem, 12vw, 4.3rem);
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+
+    gap: 48px;
+  }
+
+  .about-story .about-lead {
+    font-size: 1.25rem;
+  }
+
 }
-/* HERO DESKTOP LAYOUT FIX */
 
-@media (min-width: 1001px) {
 
-  .hero {
-    display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(420px, 0.9fr);
-    gap: 70px;
-    align-items: center;
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 420px) {
+
+  .hero h1 {
+    font-size: 3rem;
   }
 
-  .hero-copy {
-    display: block;
-    max-width: 720px;
+  .hero-panel h2 {
+    font-size: 2rem;
   }
 
-  .hero-panel {
-    grid-column: 2;
-    grid-row: 1;
-
-    width: 100%;
-    max-width: 520px;
-
-    justify-self: end;
+  .coaching-card h3 {
+    font-size: 2.2rem;
   }
 
-  .hero-proof {
-    width: 100%;
-
-    margin-top: 55px;
-
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
+  .about-heading h2 {
+    font-size: 2.8rem;
   }
 
 }
