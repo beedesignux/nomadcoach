@@ -453,3 +453,175 @@ h1 span {
   }
 
 }
+/* COACHING SECTION */
+
+.coaching-section {
+  padding: 120px max(24px, calc((100% - 1240px) / 2));
+  background: #ffffff;
+}
+
+.section-intro {
+  max-width: 820px;
+  margin-bottom: 70px;
+}
+
+.section-label {
+  margin: 0 0 22px;
+
+  color: var(--accent);
+
+  font-size: 0.72rem;
+  font-weight: 800;
+
+  letter-spacing: 0.16em;
+}
+
+.section-intro h2 {
+  margin: 0 0 30px;
+
+  font-size: clamp(2.8rem, 5vw, 5rem);
+  line-height: 0.98;
+
+  letter-spacing: -0.05em;
+}
+
+.section-intro h2 span {
+  display: block;
+  color: var(--muted);
+  font-weight: 450;
+}
+
+.section-intro > p:not(.section-label) {
+  max-width: 700px;
+
+  margin: 0 0 16px;
+
+  color: #4e4b46;
+
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+
+
+/* COACHING PATHS */
+
+.coaching-paths {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 24px;
+}
+
+.coaching-card {
+  min-height: 560px;
+
+  padding: 46px;
+
+  background: var(--background);
+
+  display: flex;
+  flex-direction: column;
+}
+
+.coaching-card-dark {
+  background: var(--dark);
+  color: #ffffff;
+}
+
+.card-number {
+  margin: 0 0 60px;
+
+  color: var(--accent);
+
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.coaching-card h3 {
+  margin: 0 0 20px;
+
+  font-size: clamp(2rem, 3vw, 3.2rem);
+
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.card-intro {
+  max-width: 500px;
+
+  margin: 0 0 30px;
+
+  color: var(--muted);
+
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.coaching-card-dark .card-intro {
+  color: #b7b7b7;
+}
+
+.coaching-card ul {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.coaching-card li {
+  padding: 13px 0;
+
+  border-top: 1px solid #d5d0c8;
+
+  font-size: 0.92rem;
+}
+
+.coaching-card-dark li {
+  border-color: #373737;
+}
+
+.card-note {
+  margin: auto 0 0;
+  padding-top: 35px;
+
+  color: var(--muted);
+
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.coaching-card-dark .card-note {
+  color: #8f8f8f;
+}
+
+
+/* COACHING MOBILE */
+
+@media (max-width: 800px) {
+
+  .coaching-section {
+    padding: 80px 18px;
+  }
+
+  .section-intro {
+    margin-bottom: 45px;
+  }
+
+  .coaching-paths {
+    grid-template-columns: 1fr;
+  }
+
+  .coaching-card {
+    min-height: auto;
+    padding: 32px 26px;
+  }
+
+  .card-number {
+    margin-bottom: 40px;
+  }
+
+  .card-note {
+    margin-top: 35px;
+  }
+
+}
