@@ -625,3 +625,40 @@ h1 span {
   }
 
 }
+/* HERO DESKTOP LAYOUT FIX */
+
+@media (min-width: 1001px) {
+
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(420px, 0.9fr);
+    gap: 70px;
+    align-items: center;
+  }
+
+  .hero-copy {
+    display: block;
+    max-width: 720px;
+  }
+
+  .hero-panel {
+    grid-column: 2;
+    grid-row: 1;
+
+    width: 100%;
+    max-width: 520px;
+
+    justify-self: end;
+  }
+
+  .hero-proof {
+    width: 100%;
+
+    margin-top: 55px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+
+}
