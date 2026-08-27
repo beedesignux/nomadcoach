@@ -1206,6 +1206,253 @@ a:focus-visible {
     margin-top: 50px;
 
     gap: 12px 22px;
+     
+  }
+
+}
+/* =========================================================
+   CONTACT / ASSESSMENT
+========================================================= */
+
+.contact-section {
+  padding:
+    120px
+    max(24px, calc((100% - var(--page-width)) / 2));
+
+  background: var(--dark);
+  color: #ffffff;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.85fr)
+    minmax(440px, 1.15fr);
+
+  gap: 90px;
+
+  align-items: start;
+}
+
+
+/* CONTACT INTRO */
+
+.contact-intro {
+  max-width: 600px;
+}
+
+.contact-section .section-label {
+  color: var(--accent);
+}
+
+.contact-intro h2 {
+  margin: 0;
+
+  font-size: clamp(3rem, 5vw, 5.4rem);
+
+  line-height: 0.96;
+
+  letter-spacing: -0.055em;
+}
+
+.contact-intro h2 span {
+  display: block;
+
+  color: #858585;
+
+  font-weight: 430;
+}
+
+.contact-lead {
+  max-width: 570px;
+
+  margin: 32px 0 0;
+
+  color: #b7b7b7;
+
+  font-size: 1.05rem;
+
+  line-height: 1.7;
+}
+
+
+/* CONTACT STEPS */
+
+.contact-points {
+  margin-top: 60px;
+
+  border-top: 1px solid var(--line-dark);
+}
+
+.contact-points div {
+  padding: 20px 0;
+
+  border-bottom: 1px solid var(--line-dark);
+
+  display: grid;
+
+  grid-template-columns: 42px 1fr;
+
+  gap: 15px;
+}
+
+.contact-points span {
+  color: var(--accent);
+
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.contact-points p {
+  margin: 0;
+
+  color: #b7b7b7;
+
+  font-size: 0.9rem;
+
+  line-height: 1.55;
+}
+
+
+/* ASSESSMENT FORM PANEL */
+
+.assessment-panel {
+  padding: 48px;
+
+  background: #ffffff;
+  color: var(--text);
+}
+
+.assessment-form {
+  display: grid;
+
+  gap: 28px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+
+  gap: 9px;
+}
+
+.form-group label {
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+
+  padding: 14px 0;
+
+  border: 0;
+  border-bottom: 1px solid #aaa59d;
+
+  border-radius: 0;
+
+  background: transparent;
+  color: var(--text);
+
+  font: inherit;
+
+  font-size: 0.95rem;
+
+  outline: none;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-bottom-color: var(--accent);
+}
+
+.form-group textarea::placeholder {
+  color: #96928d;
+}
+
+
+/* SUBMIT BUTTON */
+
+.form-submit {
+  min-height: 54px;
+
+  margin-top: 8px;
+
+  border: 0;
+
+  background: var(--dark);
+  color: #ffffff;
+
+  font: inherit;
+
+  font-size: 0.95rem;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.form-submit:hover {
+  transform: translateY(-2px);
+}
+
+.form-note {
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: 0.78rem;
+
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   CONTACT TABLET
+========================================================= */
+
+@media (max-width: 950px) {
+
+  .contact-section {
+    grid-template-columns: 1fr;
+
+    gap: 60px;
+  }
+
+}
+
+
+/* =========================================================
+   CONTACT MOBILE
+========================================================= */
+
+@media (max-width: 720px) {
+
+  .contact-section {
+    padding: 80px 18px;
+
+    gap: 45px;
+  }
+
+  .contact-intro h2 {
+    font-size: clamp(2.8rem, 12vw, 4.2rem);
+  }
+
+  .contact-points {
+    margin-top: 45px;
+  }
+
+  .assessment-panel {
+    padding: 32px 24px;
   }
 
 }
