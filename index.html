@@ -18,7 +18,8 @@
     content="Personalised strength, movement and performance coaching for long-term physical capability, return to training and combat-sport performance."
   >
 
- <link rel="stylesheet" href="./style.css?v=7">
+  <link rel="stylesheet" href="./style.css?v=7">
+  <link rel="stylesheet" href="./legal.css?v=1">
 </head>
 
 
@@ -853,13 +854,33 @@
 
             <input
               type="checkbox"
-              id="consent"
-              name="consent"
+              id="privacy-consent"
+              name="privacy_consent"
               value="yes"
               required
             >
 
-            <label for="consent">
+            <label for="privacy-consent">
+              I consent to NomadCoach using the information I submit,
+              including any health-related information I choose to provide,
+              to assess and respond to my coaching enquiry. I have read the
+              <a href="./privacy.html" target="_blank" rel="noopener">Privacy Policy</a>.
+            </label>
+
+          </div>
+
+
+          <div class="form-consent">
+
+            <input
+              type="checkbox"
+              id="scope-consent"
+              name="scope_consent"
+              value="yes"
+              required
+            >
+
+            <label for="scope-consent">
               I understand that NomadCoach provides fitness and
               performance coaching and does not replace medical
               diagnosis or treatment.
@@ -888,7 +909,31 @@
 
     </section>
 
-   </main>
+  </main>
+
+  <!-- ========================================
+       FOOTER
+  ========================================= -->
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+
+      <a class="footer-logo" href="./index.html">
+        NOMAD<span>COACH</span>
+      </a>
+
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="./privacy.html">Privacy Policy</a>
+        <a href="./terms.html">Terms</a>
+        <a href="mailto:nomad.manager@mail.com">Contact</a>
+      </nav>
+
+      <p class="footer-copy">
+        © 2026 NomadCoach. All rights reserved.
+      </p>
+
+    </div>
+  </footer>
 
 
   <!-- ========================================
@@ -905,7 +950,6 @@
 
       menuButton.classList.toggle("open", isOpen);
       menuButton.setAttribute("aria-expanded", isOpen);
-
       menuButton.setAttribute(
         "aria-label",
         isOpen ? "Close navigation" : "Open navigation"
@@ -916,7 +960,6 @@
       link.addEventListener("click", () => {
         siteNav.classList.remove("open");
         menuButton.classList.remove("open");
-
         menuButton.setAttribute("aria-expanded", "false");
         menuButton.setAttribute("aria-label", "Open navigation");
       });
