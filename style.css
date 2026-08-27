@@ -1121,13 +1121,14 @@ textarea:focus-visible {
   /* HEADER */
 
   .site-header {
-    width: calc(100% - 36px);
+  width: 100%;
+  min-height: 72px;
 
-    min-height: 72px;
+  padding-left: 18px;
+  padding-right: 18px;
 
-    gap: 12px;
-  }
-
+  gap: 12px;
+}
   .logo {
     font-size: 0.95rem;
   }
