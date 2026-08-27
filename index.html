@@ -888,7 +888,40 @@
 
     </section>
 
-  </main>
+   </main>
+
+
+  <!-- ========================================
+       MOBILE NAVIGATION
+  ========================================= -->
+
+  <script>
+    const menuButton = document.querySelector(".mobile-menu-button");
+    const siteNav = document.querySelector("#site-nav");
+    const navLinks = siteNav.querySelectorAll("a");
+
+    menuButton.addEventListener("click", () => {
+      const isOpen = siteNav.classList.toggle("open");
+
+      menuButton.classList.toggle("open", isOpen);
+      menuButton.setAttribute("aria-expanded", isOpen);
+
+      menuButton.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation" : "Open navigation"
+      );
+    });
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        siteNav.classList.remove("open");
+        menuButton.classList.remove("open");
+
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.setAttribute("aria-label", "Open navigation");
+      });
+    });
+  </script>
 
 </body>
 
