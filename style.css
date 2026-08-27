@@ -18,18 +18,18 @@ html {
 }
 
 :root {
-  --background: #f4f1ec;
-  --surface: #ffffff;
+  --background: #F7F4EF;
+  --surface: #FFFFFF;
 
-  --text: #131313;
-  --muted: #67645f;
+  --text: #151515;
+  --muted: #6B6762;
 
-  --dark: #141414;
+  --dark: #171717;
 
-  --accent: #b59a56;
+  --accent: #B96846;
 
-  --line: #d4d0ca;
-  --line-dark: #383838;
+  --line: #DDD7D0;
+  --line-dark: #3A3A3A;
 
   --page-width: 1240px;
 }
@@ -71,17 +71,36 @@ textarea:focus-visible {
    HEADER
 ========================================================= */
 
-.site-header {
-  width: min(var(--page-width), calc(100% - 48px));
-  min-height: 88px;
+========================================================= */
 
-  margin: 0 auto;
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  width: 100%;
+  min-height: 76px;
+
+  margin: 0;
+
+  padding-left: max(24px, calc((100% - var(--page-width)) / 2));
+  padding-right: max(24px, calc((100% - var(--page-width)) / 2));
 
   display: flex;
   align-items: center;
 
   gap: 32px;
+
+  background: rgba(247, 244, 239, 0.94);
+
+  border-bottom: 1px solid var(--line);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
+
+.logo {
+  flex-shrink: 0;
 
 .logo {
   flex-shrink: 0;
@@ -100,44 +119,68 @@ textarea:focus-visible {
   color: var(--accent);
 }
 
-.desktop-nav {
-  margin-left: auto;
-
-  display: flex;
-  align-items: center;
-
-  gap: 32px;
-}
-
 .desktop-nav a {
+  position: relative;
+
+  padding: 27px 0 24px;
+
   text-decoration: none;
 
-  font-size: 0.92rem;
-  font-weight: 500;
+  font-size: 0.9rem;
+  font-weight: 600;
 
-  transition: opacity 0.2s ease;
+  transition: color 0.2s ease;
+}
+
+.desktop-nav a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: 18px;
+
+  width: 0;
+  height: 2px;
+
+  background: var(--accent);
+
+  transition: width 0.2s ease;
 }
 
 .desktop-nav a:hover {
-  opacity: 0.55;
+  color: var(--accent);
+}
+
+.desktop-nav a:hover::after {
+  width: 100%;
 }
 
 .header-cta {
   min-height: 42px;
 
-  padding: 0 18px;
+  padding: 0 19px;
 
   display: inline-flex;
   align-items: center;
   justify-content: center;
 
-  background: var(--dark);
+  background: var(--accent);
   color: #ffffff;
 
   text-decoration: none;
 
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   font-weight: 700;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.header-cta:hover {
+  background: var(--dark);
+  transform: translateY(-1px);
 }
 
 
