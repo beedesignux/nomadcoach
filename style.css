@@ -89,7 +89,7 @@ textarea:focus-visible {
 
   gap: 32px;
 
-  background: rgba(247, 244, 239, 0.94);
+background: rgba(252, 250, 247, 0.96);
 
   border-bottom: 1px solid var(--line);
 
@@ -1333,4 +1333,12 @@ textarea:focus-visible {
     padding: 28px 20px;
   }
 
+}
+/* Keep anchor-linked sections clear of sticky navigation */
+
+#coaching,
+#about,
+#results,
+#contact {
+  scroll-margin-top: 100px;
 }
