@@ -71,8 +71,6 @@ textarea:focus-visible {
    HEADER
 ========================================================= */
 
-========================================================= */
-
 .site-header {
   position: sticky;
   top: 0;
@@ -99,8 +97,8 @@ textarea:focus-visible {
   -webkit-backdrop-filter: blur(14px);
 }
 
-.logo {
-  flex-shrink: 0;
+
+/* LOGO */
 
 .logo {
   flex-shrink: 0;
@@ -117,6 +115,18 @@ textarea:focus-visible {
 
 .logo span {
   color: var(--accent);
+}
+
+
+/* DESKTOP NAVIGATION */
+
+.desktop-nav {
+  margin-left: auto;
+
+  display: flex;
+  align-items: center;
+
+  gap: 32px;
 }
 
 .desktop-nav a {
@@ -156,7 +166,12 @@ textarea:focus-visible {
   width: 100%;
 }
 
+
+/* HEADER CTA */
+
 .header-cta {
+  flex-shrink: 0;
+
   min-height: 42px;
 
   padding: 0 19px;
