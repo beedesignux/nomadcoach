@@ -516,7 +516,9 @@ textarea:focus-visible {
 
   letter-spacing: -0.055em;
 }
-
+.section-intro h2 {
+  margin-bottom: 32px;
+}
 .section-intro h2 span,
 .results-heading h2 span,
 .about-heading h2 span {
